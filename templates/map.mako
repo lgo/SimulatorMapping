@@ -7,11 +7,19 @@
   <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
   <script>
   $(function() {
-    var map = L.map('map').setView([51.505, -0.09], 13);
+    var map = L.map('map').setView([20, 20], 5);
 
-    L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('http://localhost:5000/tile/{z}/{x}/{y}', {
         maxZoom: 18
     }).addTo(map);
+
+    var popup = L.popup();
+    map.on('click', function(e) { 
+      popup.setLatLng(e.latlng)
+       .setContent("You clicked the map at " + e.latlng.toString())
+       .openOn(map);
+    });
+
   });
   </script>
 </head>

@@ -22,7 +22,7 @@ def make_map(config):
 
     map.connect('/{controller}/{action}')
     map.connect('/{controller}/{action}/{id}')
-    map.connect('/{controller}/{action}/{z}/{x}/{y}')
+    map.connect('/tile/{z}/{x}/{y}', controller='map', action='tile')
 
     map.connect('/{action}', controller='index')    
     map.connect('/', controller='index', action='index')

@@ -13,5 +13,7 @@ class MapController(BaseController):
   def __init__(self):
     pass
 
-  def tiles(self, z, x, y):
+  def tile(self, z, x, y):
+    print "Serving tile %s, %s" % (x,y)
+    response.content_type = "image/png"
     return g.mapgen.getTile(z,x,y)
